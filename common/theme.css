@@ -2,10 +2,20 @@
   --color-accent-blackrose: #54284c;
   --color-accent-hippyblue: #5199a8;
   --color-accent-trendypink: #8c6184;
-  --font-primary: "Open Sans", sans-serif;
+  --font-primary: "Open Sans 700", sans-serif;
   --font-secondary: "Seaweed Script", serif;
 }
 
 html {
   font-family: var(--font-primary);
+}
+
+h1,
+h3,
+h4 {
+  font-family: var(--font-primary);
+}
+
+h2 {
+  font-family: var(--font-secondary);
 }
