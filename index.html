@@ -107,6 +107,16 @@
                   </div>
                 </a>
               </li>
+              <li role="presentation">
+                <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="icons" href="#icons">
+                  <div class="relative">
+                    <span>Icons</span>
+                    <i class="icon i-18 absolute pin-cr">
+                      <svg><use xlink:href="#icon-active" /></svg>
+                    </i>
+                  </div>
+                </a>
+              </li>
                 <li role="presentation">
                   <a class="gutter pad-t-1-4 pad-b-1-4 block" role="tab" aria-controls="buttons" href="#buttons">
                     <div class="relative">
@@ -651,6 +661,35 @@
 
 </section>
 
+        <section class="pattern" id="icons" role="tabpanel" hidden aria-hidden="true" style="">
+  <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" style="">
+    <h2 class="pattern-name exa push-1-4" style="color: #5199a8;">Icons</h2>
+        <ul class="list-group-inline gutter absolute pin-cr">
+        </ul>
+  </div>
+
+    <div class="pattern-desc milli island" style="">
+      <div class="max-length"><p>The sprite sheet contains the following icons that are available for use in the website. Combine the icons with <a href="https://modulifier.web-dev.tools">Modulifier</a> classes for lots of variability. <a href="https://learn-the-web.algonquindesign.ca/topics/modulifier-cheat-sheet/">See the documentation for all available classes.</a></p>
+</div>
+    </div>
+
+  
+
+    <div class="pattern-details" id="icons-icons" style="">
+
+      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="">
+        <div class="gutter pad-t-1-2 pad-b-1-2">
+          <div class="resizeable-pattern relative" style="">
+            <i class="icon i-48 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
+            <iframe data-src="patterns/icons/1-icons.html" scrolling="no" onload="resizeIframe(this)" ></iframe>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+</section>
+
         <section class="pattern" id="buttons" role="tabpanel" hidden aria-hidden="true" style="">
   <div class="pattern-toolbar gutter pad-t-1-4 pad-b-1-8 relative" style="">
     <h2 class="pattern-name exa push-1-4" style="color: #5199a8;">Buttons</h2>
@@ -672,6 +711,20 @@
         </ul>
   </div>
 
+      <div class="pattern-desc milli island" style="">
+        <div class="max-length"><p>Each button has a specific purpose yet the styles remain the same aside from their color the color of each matches the page color it appears on.</p>
+<ul>
+<li><p>The Shop button is used on the first section of the homepage.  It is transparent with black text and font so it stands out against the light blue background.</p>
+</li>
+<li><p>The Products button is used at the bottom of the home page to view more products.  The color matches the homepage to create consistency.</p>
+</li>
+<li><p>The More button is used under each section of the products page to view more products in each category.  The color matches the products page to create consistency.</p>
+</li>
+<li><p>The Confirm button is used at the bottom of the form page to confirm order.  The color matches the form to create consistency.</p>
+</li>
+</ul>
+</div>
+      </div>
 
   
 
@@ -704,9 +757,10 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;Standard button&lt;/a>
-&lt;a class="btn btn-light" href="#">Light button&lt;/a>
-&lt;a class="btn btn-ghost" href="#">Ghost button&lt;/a>
+              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;Shop&lt;/a>
+&lt;a class="btn btn-more" href="#">More&lt;/a>
+&lt;a class="btn btn-products" href="#">Products&lt;/a>
+&lt;a class="btn btn-confirm" href="#">Confirm&lt;/a>
 </pre></code>
             </div>
           </div>

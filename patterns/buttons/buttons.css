@@ -1,20 +1,60 @@
 .btn {
+  background-color: transparent;
+  border-color: #000;
+  border-radius: 8px;
+  padding: .2em .6em;
+
+
+  color: #000;
+
+  transition-duration: 0.4s;
+  }
+
+.btn:hover {
   background-color: var(--color-accent-hippyblue);
-  border-color: var(--color-accent-hippyblue);
-
-  color: #fff;
+  border-color: #000;
 }
 
-.btn-light {
-  background-color: var(--color-accent-blackrose);
+.btn-more {
+  background-color: var(--transparent);
   border-color: var(--color-accent-blackrose);
+  border-radius: 8px;
+  padding: .2em .6em;
 
-  color: #fff;
+
+  color: var(--color-accent-blackrose);
 }
 
-.btn-ghost {
+.btn-more:hover {
+  background-color:var(--color-accent-blackrose);
+  border-color: var(--color-accent-blackrose);
+}
+
+.btn-products {
   background-color: transparent;
   border-color: var(--color-accent-hippyblue);
+  border-radius: 8px;
+  padding: .2em .6em;
+
 
   color: var(--color-accent-hippyblue);
+}
+.btn-products:hover {
+  background-color: var(--color-accent-hippyblue);
+  border-color: var(--color-accent-hippyblue);
+}
+
+.btn-confirm{
+  background-color: transparent;
+  border-color:var(--color-accent-trendypink);
+  border-radius: 8px;
+  padding: .2em .6em;
+
+
+  color: var(--color-accent-trendypink);
+}
+
+.btn-confirm:hover {
+  background-color: var(--color-accent-trendypink);
+  border-color: var(--color-accent-trendypink);
 }

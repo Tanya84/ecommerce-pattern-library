@@ -5,26 +5,26 @@ accentColour: "#5199a8"
 
 fonts:
   primary: |
-    The primary typeface represents open forms and a neutral, yet friendly appearance it is optimized for legibility across print, web, and mobile interfaces. Featuring wide apertures on many letters and a large x-height, the typeface is highly legible on screen and at small sizes.
+    The primary typeface Open Sans represents open forms and a neutral, yet friendly appearance it is optimized for legibility across print, web, and mobile interfaces. Featuring wide apertures on many letters and a large x-height, the typeface is highly legible on screen and at small sizes.
 
-    Use the primary typeface for body copy, h1, lists and links.
+    Use the primary typeface for body copy, lists, and default text.
 
   secondary: |
-    The secondary typeface represents
+    The secondary typeface Seaweed Script represents a wave of ocean breezes and is meant to have a calming healing effect.  This font represents the brand and what it is trying to achieve.
 
-    Use the secondary typeface for
+    Use the secondary typeface for headings.
 
 colors:
-  accent 1: |
-    The first accent color represents
+  accent-hippyblue: |
+    The first accent color of hippie blue represents trust and dependability. It symbolizes the ocean and sky it is a constant and calming influence in our world.  This colour appeals to both men and women.  This color is featured on the homepage.
 
 
   accent 2: |
-    The second accent color represents
+    The second accent color of black rose represents the beginning of new things, a journey into unexplored territory.  This color is featured on the products page.
 
 
   accent 3: |
-    The third accent color represents
+    The third accent color of trendy pink represents unconditional love and understanding, and is associated with giving and receiving care.  This color is feature on the form page.
 
 
 
