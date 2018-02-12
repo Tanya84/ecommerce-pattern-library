@@ -10,8 +10,6 @@ html {
   font-family: var(--font-primary);
 }
 
-
-
 h2,
 h3,
 h4 {
@@ -31,7 +29,6 @@ a {
   font-family: var(--font-primary);
 }
 
-
 ul li,
 ol li,
 dl,
@@ -46,5 +43,5 @@ mark {
 }
 
 span {
-    font-family: var(--font-primary);
-  }
+  font-family: var(--font-primary);
+}
