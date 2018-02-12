@@ -1,0 +1,20 @@
+.btn {
+  background-color: var(--color-accent-hippyblue);
+  border-color: var(--color-accent-hippyblue);
+
+  color: #fff;
+}
+
+.btn-light {
+  background-color: var(--color-accent-blackrose);
+  border-color: var(--color-accent-blackrose);
+
+  color: #fff;
+}
+
+.btn-ghost {
+  background-color: transparent;
+  border-color: var(--color-accent-hippyblue);
+
+  color: var(--color-accent-hippyblue);
+}

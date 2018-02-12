@@ -2,20 +2,49 @@
   --color-accent-blackrose: #54284c;
   --color-accent-hippyblue: #5199a8;
   --color-accent-trendypink: #8c6184;
-  --font-primary: "Open Sans 700", sans-serif;
   --font-secondary: "Seaweed Script", serif;
+  --font-primary: "Open Sans", sans-serif;
 }
 
 html {
   font-family: var(--font-primary);
 }
 
-h1,
+
+
+h2,
 h3,
 h4 {
   font-family: var(--font-primary);
 }
 
-h2 {
+h1 {
   font-family: var(--font-secondary);
 }
+
+p {
+  font-family: var(--font-primary);
+}
+
+a {
+  color: var(--color-accent-hippyblue);
+  font-family: var(--font-primary);
+}
+
+
+ul li,
+ol li,
+dl,
+dt,
+dd {
+  color: var(--color-accent-trendypink);
+  font-family: var(--font-primary);
+}
+
+mark {
+  background-color: var(--color-accent-hippyblue);
+}
+
+span {
+    font-family: var(--font-primary);
+  }
