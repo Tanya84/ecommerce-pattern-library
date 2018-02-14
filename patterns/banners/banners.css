@@ -1,5 +1,23 @@
 .banner {
   max-height: 500px;
   overflow: hidden;
+}
 
+h2 {
+  color: #fff;
+}
+
+h3 {
+  background-color: var(--color-accent-blackrose);
+  color: #fff;
+}
+
+.logo {
+  width: 300px;
+
+}
+
+.banner-main {
+  max-height: 500px;
+  overflow: hidden;
 }
