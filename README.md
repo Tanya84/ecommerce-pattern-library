@@ -15,17 +15,12 @@ fonts:
     Use the secondary typeface for headings.
 
 colors:
-  accent-hippyblue: |
+  accent: |
     The first accent color of hippie blue represents trust and dependability. It symbolizes the ocean and sky it is a constant and calming influence in our world.  This colour appeals to both men and women.  This color is featured on the homepage.
 
-
-  accent 2: |
     The second accent color of black rose represents the beginning of new things, a journey into unexplored territory.  This color is featured on the products page.
 
-
-  accent 3: |
     The third accent color of trendy pink represents unconditional love and understanding, and is associated with giving and receiving care.  This color is feature on the form page.
-
 
 
 ---
