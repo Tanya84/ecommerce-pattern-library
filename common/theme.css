@@ -36,7 +36,7 @@ ol li,
 dl,
 dt,
 dd {
-  color: var(--color-accent-trendypink);
+  color: #000;
   font-family: var(--font-primary);
 }
 

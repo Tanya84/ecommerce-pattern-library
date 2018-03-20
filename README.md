@@ -22,7 +22,9 @@ colors:
 
     The third accent color of trendy pink represents unconditional love and understanding, and is associated with giving and receiving care.  This color is feature on the form page.
 
-
+icons:
+  icons:
+    background-color: "var(--color-accent-)"
 ---
 
 To provide positive and inspiring healing tools to balance your life and provide inner peace, we offer a variety of implements to assist you on your spiritual goals. Your Journey awaits...

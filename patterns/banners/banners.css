@@ -3,11 +3,11 @@
   overflow: hidden;
 }
 
-h2 {
-  color: #fff;
+.products {
+  color: #000;
 }
 
-h3 {
+.crystals {
   background-color: var(--color-accent-blackrose);
   color: #fff;
 }
