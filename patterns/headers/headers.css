@@ -11,11 +11,37 @@ header nav li {
 
 header {
   text-align: center;
+  position: relative;
 }
 
 header nav li:last-child {
   width: 100%;
 }
+
+a {
+  color: var(--color-accent-hippyblue);
+  text-decoration: underline;
+
+}
+
+.logo {
+  border: none;
+}
+
+.cart {
+  border: none;
+  color: var(--color-accent-hippyblue);
+  position: absolute;
+  right: 20px;
+  top: 5px;
+
+}
+
+.nav {
+  padding-right: 50px;
+
+}
+
 
 
 
@@ -25,8 +51,10 @@ header nav li:last-child {
     float: left;
   }
 
+
   nav {
     float: right;
+
   }
 
   header nav li, header nav li:last-child {
