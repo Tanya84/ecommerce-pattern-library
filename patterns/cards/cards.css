@@ -26,3 +26,21 @@ a.circle {
 
 
 }
+
+.caption {
+  text-decoration: none;
+  color: var(--color-accent-blackrose);
+
+}
+
+.caption:hover {
+  color:var(--color-accent-hippyblue);
+
+
+}
+
+.change {
+  color:var(--color-accent-hippyblue);
+
+
+}

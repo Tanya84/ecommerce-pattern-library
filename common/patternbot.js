@@ -388,9 +388,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library
- * @version 1522173094683
+ * @version 1523314712681
  */
-const patternManifest_1522173094683 = {
+const patternManifest_1523314712681 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -557,13 +557,9 @@ const patternManifest_1522173094683 = {
       "bodyBasic": "To provide positive and inspiring healing tools to balance your life and provide inner peace, we offer a variety of implements to assist you on your spiritual goals. Your Journey awaits..."
     },
     "icons": [
-      "book",
-      "cart",
       "crystal",
-      "facebook",
-      "insence",
-      "instagram",
-      "twitter"
+      "book",
+      "insence"
     ],
     "interfaceColours": {
       "primary": 0,
@@ -603,6 +599,11 @@ const patternManifest_1522173094683 = {
         "name": "home.html",
         "namePretty": "Home",
         "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/home.html"
+      },
+      {
+        "name": "products.html",
+        "namePretty": "Products",
+        "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/products.html"
       }
     ]
   },
@@ -918,5 +919,5 @@ const patternManifest_1522173094683 = {
   }
 };
 
-patternBotIncludes(patternManifest_1522173094683);
+patternBotIncludes(patternManifest_1523314712681);
 }());

@@ -3,3 +3,16 @@ background-color: var(--color-accent-hippyblue);
 color: #fff;
 
 }
+
+.rose {
+  background-color: var(--color-accent-blackrose);
+
+
+}
+
+
+.pink {
+  background-color: var(--color-accent-trendypink);
+
+
+}
