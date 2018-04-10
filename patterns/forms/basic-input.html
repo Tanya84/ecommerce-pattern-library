@@ -16,18 +16,43 @@
 <body>
 
 
-        <fieldset>
-          <legend class="italic giga push-1-2">Personal details</legend>
+  <section class="contact pad-t-2 pad-b-2">
+<div class="max-length">
+  <h1></h1>
 
-            <div class="push">
-              <label for="card-number">Card Number</label>
-              <input id="card-number" required aria-describedby="card-error">
-              <p class="error-message milli island-1-4 push-0" id="card-error">
-      <i class="icon 1-16"><svg><use xlink:href="images/icons.svg#error"/></svg></i>
-      <span class="icon-label">Please provide a properly formatted card number</span>
-    </p>
-            </div>
-        </fieldset>
+  <form class="push-0">
+    <div class="push">
+      <label for="name">Name</label>
+      <input id="name">
+    </div>
+    <div class="push">
+      <label for="bday">Date of birth</label>
+      <input id="bday">
+    </div>
+    <div class="push">
+      <label for="name">Card Number</label>
+      <input id="name">
+    </div>
+    <div class="push">
+      <label for="email">Your email</label>
+      <input id="email">
+    </div>
+    <div class="push">
+      <label for="subject">Subject</label>
+      <select id="subject" name="_subject">
+        <option>Get a quote!</option>
+        <option>General question</option>
+        <option>Just to talk</option>
+      </select>
+    </div>
+
+    <div>
+      <button class="btn btn-light" type="submit">Checkout</button>
+    </div>
+  </form>
+</div>
+</section>
+
 
         <script src="https://thomasjbradley.github.io/form-validation-helper/index.js"></script>
 

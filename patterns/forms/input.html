@@ -16,23 +16,19 @@
 <body>
 
 
-<form>
-<div class="island-2 push">
-  <label for="province">Province</label>
-  <select id="province" name="province">
-    <option>Alberta</option>
-    <option>British Columbia</option>
-    <option>Manitoba</option>
-    <option>New Brunswick</option>
-    <option>Newfoundland</option>
-    <option>Nova Scotia</option>
-    <option>Ontario</option>
-    <option>Prince Edward Island</option>
-    <option>Quebec</option>
-    <option>Saskatchewan</option>
-    <option>Northwest Territories</option>
-    <option>Nunavut</option>
-    <option>Yukon</option>
-  </select>
-</div>
-</form>
+        <fieldset>
+
+            <div class="gutter-2 push">
+              <label for="card-number">Name</label>
+              <input id="card-number" required aria-describedby="card-error">
+              <p class="error-message milli island-1-4 push-0" id="card-error">
+      <i class="icon 1-16"><svg><use xlink:href="images/icons.svg#error"/></svg></i>
+      <span class="icon-label">Please provide a properly formatted card number</span>
+    </p>
+            </div>
+        </fieldset>
+
+        <script src="https://thomasjbradley.github.io/form-validation-helper/index.js"></script>
+
+      </body>
+      </html>

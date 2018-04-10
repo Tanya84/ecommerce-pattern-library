@@ -12,6 +12,11 @@
   color: #fff;
 }
 
+.products {
+  background-color: var(--color-accent-trendypink);
+  color: #fff;
+}
+
 .logo {
   width: 300px;
 
