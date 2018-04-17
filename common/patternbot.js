@@ -86,11 +86,17 @@ const patternBotIncludes = function (manifest) {
     `},
   };
 
+  let jsFileQueue = {
+    sync: [],
+    async: [],
+  };
   let downloadedAssets = {};
 
   const downloadHandler = function (e) {
+    const id = (e.target.hasAttribute('src')) ? e.target.getAttribute('src') : e.target.getAttribute('href');
+
     e.target.removeEventListener('load', downloadHandler);
-    downloadedAssets[e.target.getAttribute('href')] = true;
+    downloadedAssets[id] = true;
   };
 
   const findRootPath = function () {
@@ -115,7 +121,7 @@ const patternBotIncludes = function (manifest) {
     newLink.addEventListener('load', downloadHandler);
 
     document.head.appendChild(newLink);
-  }
+  };
 
   const bindAllCssFiles = function (rootPath) {
     if (manifest.commonInfo && manifest.commonInfo.readme && manifest.commonInfo.readme.attributes &&  manifest.commonInfo.readme.attributes.fontUrl) {
@@ -136,6 +142,54 @@ const patternBotIncludes = function (manifest) {
         addCssFile(`../${css.localPath}`);
       });
     });
+  };
+
+  const queueAllJsFiles = function (rootPath) {
+    if (manifest.patternLibFiles && manifest.patternLibFiles.js) {
+      manifest.patternLibFiles.js.forEach((js) => {
+        const href = `..${manifest.config.commonFolder}/${js.filename}`;
+
+        downloadedAssets[href] = false;
+        jsFileQueue.sync.push(href);
+      });
+    }
+
+    manifest.userPatterns.forEach((pattern) => {
+      if (!pattern.js) return;
+
+      pattern.js.forEach((js) => {
+        const href = `../${js.localPath}`;
+
+        downloadedAssets[href] = false;
+        jsFileQueue.async.push(href);
+      });
+    });
+  };
+
+  const addJsFile = function (href) {
+    const newScript = document.createElement('script');
+
+    newScript.setAttribute('src', href);
+    document.body.appendChild(newScript);
+
+    return newScript;
+  };
+
+  const bindNextJsFile = function (e) {
+    if (e && e.target) {
+      e.target.removeEventListener('load', bindNextJsFile);
+      downloadedAssets[e.target.getAttribute('src')] = true;
+    }
+
+    if (jsFileQueue.sync.length > 0) {
+      const scriptTag = addJsFile(jsFileQueue.sync.shift());
+      scriptTag.addEventListener('load', bindNextJsFile);
+    } else {
+      jsFileQueue.async.forEach((js) => {
+        const scriptTag = addJsFile(js);
+        scriptTag.addEventListener('load', downloadHandler);
+      });
+    }
   };
 
   const getPatternInfo = function (patternElem) {
@@ -368,11 +422,13 @@ const patternBotIncludes = function (manifest) {
 
     rootPath = findRootPath();
     bindAllCssFiles(rootPath);
+    queueAllJsFiles(rootPath);
     allPatternTags = findAllPatternTags();
     allPatterns = constructAllPatterns(rootPath, allPatternTags);
 
     loadAllPatterns(allPatterns).then((allLoadedPatterns) => {
       renderAllPatterns(allPatternTags, allLoadedPatterns);
+      bindNextJsFile();
       hideLoadingScreen();
     }).catch((e) => {
       console.group('Pattern load error');
@@ -387,10 +443,10 @@ const patternBotIncludes = function (manifest) {
 
 /** 
  * Patternbot library manifest
- * /Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya
- * @version 1523980429236
+ * /Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library
+ * @version bb9e2b69a0046cada8605a82cbbec3b6feebdc55
  */
-const patternManifest_1523980429236 = {
+const patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -568,66 +624,67 @@ const patternManifest_1523980429236 = {
   },
   "patternLibFiles": {
     "commonParsable": {
-      "gridifier": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/common/grid.css",
-      "typografier": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/common/type.css",
-      "modulifier": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/common/modules.css",
-      "theme": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/common/theme.css"
+      "gridifier": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/common/grid.css",
+      "typografier": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/common/type.css",
+      "modulifier": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/common/modules.css",
+      "theme": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/common/theme.css"
     },
     "imagesParsable": {
-      "icons": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/images/icons.svg"
+      "icons": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/images/icons.svg"
     },
     "logos": {
-      "sizeLarge": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/images/logo-256.svg",
-      "size64": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/images/logo-64.svg",
+      "sizeLarge": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/images/logo-256.svg",
+      "size64": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/images/logo-64.svg",
       "size32": false,
       "size16": false,
       "sizeLargeLocal": "logo-256.svg",
       "size64Local": "logo-64.svg"
     },
     "patterns": [
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/buttons",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/footers",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/headers",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/navigations",
-      "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/sections"
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/buttons",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/footers",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/headers",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/navigations",
+      "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/sections"
     ],
     "pages": [
       {
         "name": "checkout.html",
         "namePretty": "Checkout",
-        "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/pages/checkout.html"
+        "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/checkout.html"
       },
       {
         "name": "home.html",
         "namePretty": "Home",
-        "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/pages/home.html"
+        "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/home.html"
       },
       {
         "name": "product-details.html",
         "namePretty": "Product details",
-        "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/pages/product-details.html"
+        "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/product-details.html"
       },
       {
         "name": "products.html",
         "namePretty": "Products",
-        "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/pages/products.html"
+        "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/pages/products.html"
       }
-    ]
+    ],
+    "js": []
   },
   "userPatterns": [
     {
       "name": "banners",
       "namePretty": "Banners",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners",
       "html": [
         {
           "name": "heading-banner",
           "namePretty": "Heading banner",
           "filename": "heading-banner",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners/heading-banner.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/heading-banner.html",
           "localPath": "patterns/banners/heading-banner.html",
           "readme": {}
         },
@@ -635,7 +692,7 @@ const patternManifest_1523980429236 = {
           "name": "logo-banner",
           "namePretty": "Logo banner",
           "filename": "logo-banner",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners/logo-banner.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/logo-banner.html",
           "localPath": "patterns/banners/logo-banner.html",
           "readme": {}
         },
@@ -643,7 +700,7 @@ const patternManifest_1523980429236 = {
           "name": "main-banner",
           "namePretty": "Main banner",
           "filename": "main-banner",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners/main-banner.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/main-banner.html",
           "localPath": "patterns/banners/main-banner.html",
           "readme": {}
         }
@@ -653,7 +710,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/README.md",
           "localPath": "patterns/banners/README.md"
         }
       ],
@@ -662,21 +719,22 @@ const patternManifest_1523980429236 = {
           "name": "banners",
           "namePretty": "Banners",
           "filename": "banners",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/banners/banners.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/banners.css",
           "localPath": "patterns/banners/banners.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "buttons",
       "namePretty": "Buttons",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/buttons",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/buttons",
       "html": [
         {
           "name": "buttons",
           "namePretty": "Buttons",
           "filename": "buttons",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/buttons/buttons.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/buttons/buttons.html",
           "localPath": "patterns/buttons/buttons.html",
           "readme": {}
         }
@@ -686,7 +744,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/buttons/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/buttons/README.md",
           "localPath": "patterns/buttons/README.md"
         }
       ],
@@ -695,21 +753,22 @@ const patternManifest_1523980429236 = {
           "name": "buttons",
           "namePretty": "Buttons",
           "filename": "buttons",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/buttons/buttons.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/buttons/buttons.css",
           "localPath": "patterns/buttons/buttons.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "cards",
       "namePretty": "Cards",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards",
       "html": [
         {
           "name": "icon-card",
           "namePretty": "Icon card",
           "filename": "icon-card",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards/icon-card.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards/icon-card.html",
           "localPath": "patterns/cards/icon-card.html",
           "readme": {}
         },
@@ -717,7 +776,7 @@ const patternManifest_1523980429236 = {
           "name": "image-card",
           "namePretty": "Image card",
           "filename": "image-card",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards/image-card.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards/image-card.html",
           "localPath": "patterns/cards/image-card.html",
           "readme": {}
         }
@@ -727,7 +786,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards/README.md",
           "localPath": "patterns/cards/README.md"
         }
       ],
@@ -736,21 +795,22 @@ const patternManifest_1523980429236 = {
           "name": "cards",
           "namePretty": "Cards",
           "filename": "cards",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/cards/cards.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/cards/cards.css",
           "localPath": "patterns/cards/cards.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "footers",
       "namePretty": "Footers",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/footers",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/footers",
       "html": [
         {
           "name": "footers",
           "namePretty": "Footers",
           "filename": "footers",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/footers/footers.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/footers/footers.html",
           "localPath": "patterns/footers/footers.html"
         }
       ],
@@ -759,7 +819,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/footers/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/footers/README.md",
           "localPath": "patterns/footers/README.md"
         }
       ],
@@ -768,35 +828,36 @@ const patternManifest_1523980429236 = {
           "name": "footers",
           "namePretty": "Footers",
           "filename": "footers",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/footers/footers.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/footers/footers.css",
           "localPath": "patterns/footers/footers.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "forms",
       "namePretty": "Forms",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms",
       "html": [
         {
           "name": "basic-input",
           "namePretty": "Basic input",
           "filename": "basic-input",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms/basic-input.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms/basic-input.html",
           "localPath": "patterns/forms/basic-input.html"
         },
         {
           "name": "input",
           "namePretty": "Input",
           "filename": "input",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms/input.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms/input.html",
           "localPath": "patterns/forms/input.html"
         },
         {
           "name": "select-box",
           "namePretty": "Select box",
           "filename": "select-box",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms/select-box.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms/select-box.html",
           "localPath": "patterns/forms/select-box.html"
         }
       ],
@@ -805,7 +866,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms/README.md",
           "localPath": "patterns/forms/README.md"
         }
       ],
@@ -814,21 +875,22 @@ const patternManifest_1523980429236 = {
           "name": "forms",
           "namePretty": "Forms",
           "filename": "forms",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/forms/forms.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/forms/forms.css",
           "localPath": "patterns/forms/forms.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "headers",
       "namePretty": "Headers",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/headers",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/headers",
       "html": [
         {
           "name": "headers",
           "namePretty": "Headers",
           "filename": "headers",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/headers/headers.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/headers/headers.html",
           "localPath": "patterns/headers/headers.html"
         }
       ],
@@ -837,7 +899,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/headers/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/headers/README.md",
           "localPath": "patterns/headers/README.md"
         }
       ],
@@ -846,21 +908,22 @@ const patternManifest_1523980429236 = {
           "name": "headers",
           "namePretty": "Headers",
           "filename": "headers",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/headers/headers.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/headers/headers.css",
           "localPath": "patterns/headers/headers.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "navigations",
       "namePretty": "Navigations",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/navigations",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/navigations",
       "html": [
         {
           "name": "navigations",
           "namePretty": "Navigations",
           "filename": "navigations",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/navigations/navigations.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/navigations/navigations.html",
           "localPath": "patterns/navigations/navigations.html"
         }
       ],
@@ -869,7 +932,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/navigations/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/navigations/README.md",
           "localPath": "patterns/navigations/README.md"
         }
       ],
@@ -878,21 +941,22 @@ const patternManifest_1523980429236 = {
           "name": "navigations",
           "namePretty": "Navigations",
           "filename": "navigations",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/navigations/navigations.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/navigations/navigations.css",
           "localPath": "patterns/navigations/navigations.css"
         }
-      ]
+      ],
+      "js": []
     },
     {
       "name": "sections",
       "namePretty": "Sections",
-      "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/sections",
+      "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/sections",
       "html": [
         {
           "name": "sections",
           "namePretty": "Sections",
           "filename": "sections",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/sections/sections.html",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/sections/sections.html",
           "localPath": "patterns/sections/sections.html"
         }
       ],
@@ -901,7 +965,7 @@ const patternManifest_1523980429236 = {
           "name": "readme",
           "namePretty": "Readme",
           "filename": "README",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/sections/README.md",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/sections/README.md",
           "localPath": "patterns/sections/README.md"
         }
       ],
@@ -910,10 +974,11 @@ const patternManifest_1523980429236 = {
           "name": "sections",
           "namePretty": "Sections",
           "filename": "sections",
-          "path": "/Users/bryanchan/Semester 4/Web dev 4/ecommerce-pattern-library-tanya/patterns/sections/sections.css",
+          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/sections/sections.css",
           "localPath": "patterns/sections/sections.css"
         }
-      ]
+      ],
+      "js": []
     }
   ],
   "config": {
@@ -936,5 +1001,5 @@ const patternManifest_1523980429236 = {
   }
 };
 
-patternBotIncludes(patternManifest_1523980429236);
+patternBotIncludes(patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55);
 }());
