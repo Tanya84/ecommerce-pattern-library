@@ -12,10 +12,6 @@
   color: #fff;
 }
 
-.products {
-  background-color: var(--color-accent-trendypink);
-  color: #fff;
-}
 
 .logo {
   width: 300px;
@@ -35,4 +31,10 @@
 .sunset {
   border: none;
   border-radius: none;
+}
+
+.trendy{
+  background-color: var(--color-accent-trendypink);
+
+
 }

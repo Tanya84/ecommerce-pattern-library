@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library
- * @version 4c806713df13e07bea21ce98f99e3f814530cc4d
+ * @version e412fbe391f9c3121502937060e38c5d628edeb5
  */
-const patternManifest_4c806713df13e07bea21ce98f99e3f814530cc4d = {
+const patternManifest_e412fbe391f9c3121502937060e38c5d628edeb5 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -689,14 +689,6 @@ const patternManifest_4c806713df13e07bea21ce98f99e3f814530cc4d = {
           "filename": "logo-banner",
           "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/logo-banner.html",
           "localPath": "patterns/banners/logo-banner.html",
-          "readme": {}
-        },
-        {
-          "name": "main-banner",
-          "namePretty": "Main banner",
-          "filename": "main-banner",
-          "path": "/Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library/patterns/banners/main-banner.html",
-          "localPath": "patterns/banners/main-banner.html",
           "readme": {}
         }
       ],
@@ -996,5 +988,5 @@ const patternManifest_4c806713df13e07bea21ce98f99e3f814530cc4d = {
   }
 };
 
-patternBotIncludes(patternManifest_4c806713df13e07bea21ce98f99e3f814530cc4d);
+patternBotIncludes(patternManifest_e412fbe391f9c3121502937060e38c5d628edeb5);
 }());

@@ -12,7 +12,7 @@
   }
 
 .btn:hover {
-  background-color: var(--color-accent-hippyblue);
+  background-color: var(--color-accent-blackrose);
   border-color: #000;
 }
 
@@ -27,7 +27,7 @@
 }
 
 .btn-more:hover {
-  background-color:var(--color-accent-blackrose);
+  background-color: var(--color-accent-blackrose);
   border-color: var(--color-accent-blackrose);
 }
 
@@ -57,5 +57,13 @@
 
 .btn-confirm:hover {
   background-color: var(--color-accent-trendypink);
+  border-color: var(--color-accent-trendypink);
+}
+
+.btn-checkout:hover {
+  background-color: var(--color-accent-trendypink);
+  border-color: var(--color-accent-trendypink);
+}
+.btn-checkout {
   border-color: var(--color-accent-trendypink);
 }

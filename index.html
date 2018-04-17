@@ -825,7 +825,6 @@
         <ol class="list-group-inline push-1-4 pad-b-1-4">
             <li><a href="#banners--heading-banner">Heading banner</a></li>
             <li><a href="#banners--logo-banner">Logo banner</a></li>
-            <li><a href="#banners--main-banner">Main banner</a></li>
         </ol>
       </nav>
   </div>
@@ -985,81 +984,6 @@
           </div>
       </div>
     </div>
-    <div class="pattern-details " id="banners--main-banner" style="">
-        <div class="pattern-toolbar pattern-toolbar-inner relative gutter pad-t-1-4 pad-b-1-4" style="">
-          <h3 class="pattern-name tera push-1-8">Main banner</h3>
-            <ul class="list-group-inline gutter absolute pin-cr">
-                <li>
-                  <button class="center-contents-vertical pattern-tool-btn pattern-code-btn" title="Show code" aria-label="Show code" aria-pressed="false" aria-controls="banners-main-banner-code-sample">
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-code"></use></svg>
-                    </i>
-                  </button>
-                </li>
-                <li>
-                  <button class="center-contents-vertical pattern-tool-btn pattern-include-btn" title="Copy include" aria-label="Copy include" data-copy-include-pattern="banners/main-banner" hidden>
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-copy"></use></svg>
-                    </i>
-                  </button>
-                </li>
-                <li>
-                  <a class="btn center-contents-vertical pattern-tool-btn pattern-pop-btn" href="patterns/banners/main-banner.html" target="_blank" title="Open pattern in a new tab" aria-label="Open pattern in a new tab">
-                    <i class="icon i-18">
-                      <svg><use xlink:href="#icon-pop-out"></use></svg>
-                    </i>
-                  </a>
-                </li>
-            </ul>
-        </div>
-          <div class="pattern-desc milli island" style="">
-            <div class="max-length"><p>Banner on products page which is the main attraction.</p>
-</div>
-          </div>
-
-      <div class="pattern-examples pad-t-1-2 pad-b-1-2" style="">
-        <div class="gutter-2 pad-t-1-2 pad-b-1-2">
-          <div class="resizeable-pattern relative" style="">
-            <i class="icon i-32 patternbot-iframe-loading-gears absolute pin-c"><svg><use xlink:href="#patternbot-iframe-loading-gears"></use></svg></i>
-            <iframe data-src="patterns/banners/main-banner.html" scrolling="no" data-inject-css=" " ></iframe>
-              <div class="resizeable-pattern-length">
-                <div class="resize-handle resize-handle-left" style="">
-                  <i class="icon i-18">
-                    <svg><use xlink:href="#icon-resize-handle" /></svg>
-                  </i>
-                </div>
-                <div class="resize-handle resize-handle-right" style="">
-                  <i class="icon i-18">
-                    <svg><use xlink:href="#icon-resize-handle" /></svg>
-                  </i>
-                </div>
-              </div>
-          </div>
-        </div>
-
-          <div class="pattern-code-wrap gutter pad-t-1-2 pad-b-1-2" hidden aria-hidden="true" id="banners-main-banner-code-sample" tabindex="-1">
-            <div class="pattern-code relative milli island-1-2" style="">
-              <button class="center-contents-vertical pattern-tool-btn pattern-copy-btn absolute pin-tr" title="Copy code" aria-label="Copy code" data-clipboard-target="#banners-main-banner-code-sample-copy-chunk" hidden>
-                <i class="icon i-18">
-                  <svg><use xlink:href="#icon-copy"></use></svg>
-                </i>
-              </button>
-              <code><pre id="banners-main-banner-code-sample-copy-chunk">&lt;div&gt;
-  &lt;div class="banner-main relative">
-    &lt;img class="img-flex P-banner" src="../../images/dreamcatcher.jpg" alt="">
-    &lt;div class="pad-b banner-content absolute pin-center">
-      &lt;h2 class="products text-center tenamega">Products&lt;/h2>
-
-    &lt;/div>
-
-  &lt;/div>
-
-&lt;/div>
-</pre></code>
-            </div>
-          </div>
-      </div>
-    </div>
 
 </section>
 
@@ -1139,10 +1063,11 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;Shop&lt;/a>
+              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;More&lt;/a>
 &lt;a class="btn btn-more" href="#">More&lt;/a>
 &lt;a class="btn btn-products" href="#">Products&lt;/a>
 &lt;a class="btn btn-confirm" href="#">Confirm&lt;/a>
+&lt;a class="btn btn-checkout" href="#">Checkout&lt;/a>
 </pre></code>
             </div>
           </div>
@@ -1462,9 +1387,9 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="forms-basic-input-code-sample-copy-chunk">&lt;section class="contact pad-t-2 pad-b-2"&gt;
+              <code><pre id="forms-basic-input-code-sample-copy-chunk">&lt;section class="contact pad-t-2 pad-b"&gt;
   &lt;div class="max-length">
-    &lt;h1>&lt;/h1>
+    &lt;h1 class="giga">Enter your personal details&lt;/h1>
 
     &lt;form class="push-0">
       &lt;div class="push">
@@ -1483,17 +1408,9 @@
         &lt;label for="email">Your email&lt;/label>
         &lt;input id="email">
       &lt;/div>
-      &lt;div class="push">
-        &lt;label for="subject">Subject&lt;/label>
-        &lt;select id="subject" name="_subject">
-          &lt;option>Get a quote!&lt;/option>
-          &lt;option>General question&lt;/option>
-          &lt;option>Just to talk&lt;/option>
-        &lt;/select>
-      &lt;/div>
 
       &lt;div>
-        &lt;button class="btn btn-light" type="submit">Checkout&lt;/button>
+        &lt;button class="btn btn-checkout" type="submit">Checkout&lt;/button>
       &lt;/div>
     &lt;/form>
   &lt;/div>
@@ -1737,6 +1654,7 @@
           &lt;li class="gutter-1-2">&lt;a href="" class="pad-b-1-4">ABOUT&lt;/a>&lt;/li>
           &lt;li class="gutter-1-2">&lt;a href="products.html" class="pad-b-1-4">PRODUCTS&lt;/a>&lt;/li>
           &lt;li class="gutter-1-2">&lt;a href="" class="pad-b-1-4">CONTACT&lt;/a>&lt;/li>
+          &lt;li class="gutter-1-2">&lt;a href="checkout.html" class="pad-b-1-4">CHECKOUT&lt;/a>&lt;/li>
         &lt;/ul>
       &lt;/nav>
     &lt;/div>
