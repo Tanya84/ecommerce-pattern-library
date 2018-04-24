@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library
- * @version 0bda6316453d69038da26b63f49ea1dc64af95e6
+ * @version ce9941bdae1b730a50089d288ec212fa70b315e6
  */
-const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
+const patternManifest_ce9941bdae1b730a50089d288ec212fa70b315e6 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -547,7 +547,7 @@ const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
         "primary": {
           "name": "--font-primary",
           "namePretty": "Open Sans",
-          "raw": "\"Open Sans\", sans-serif",
+          "raw": "\"Open Sans\", sans-serif, #000",
           "weights": {
             "normal": {
               "weight": "normal",
@@ -582,7 +582,7 @@ const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
       },
       "fontsRaw": {
         "--font-secondary": "\"Seaweed Script\", serif",
-        "--font-primary": "\"Open Sans\", sans-serif"
+        "--font-primary": "\"Open Sans\", sans-serif, #000"
       }
     },
     "readme": {
@@ -617,8 +617,7 @@ const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
       "book",
       "insence",
       "twitter",
-      "facebook",
-      "instagram"
+      "facebook"
     ],
     "interfaceColours": {
       "primary": 0,
@@ -1004,5 +1003,5 @@ const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
   }
 };
 
-patternBotIncludes(patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6);
+patternBotIncludes(patternManifest_ce9941bdae1b730a50089d288ec212fa70b315e6);
 }());

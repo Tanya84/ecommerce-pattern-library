@@ -3,7 +3,7 @@
   --color-accent-hippyblue: #5199a8;
   --color-accent-trendypink: #8c6184;
   --font-secondary: "Seaweed Script", serif;
-  --font-primary: "Open Sans", sans-serif;
+  --font-primary: "Open Sans", sans-serif, #000;
 }
 
 html {
