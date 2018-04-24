@@ -1,2 +1,2 @@
 
-The navigation provides a way for us to go to the shopping cart on the website.
+The navigation provides a way to return to the shopping cart when on the home page.

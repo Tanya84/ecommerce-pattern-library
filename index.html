@@ -1107,13 +1107,13 @@
 <li>The Shop button is used on the first section of the homepage.  It is transparent with black text and font so it stands out against the light blue background.</li>
 </ul>
 <ul>
-<li>The Products button is used at the bottom of the home page to view more products.  The color matches the homepage to create consistency.</li>
+<li>The Buy now  button is used on the product details page to view more information about the product selected.  The color matches the product details page to create consistency.</li>
 </ul>
 <ul>
 <li>The More button is used under each section of the products page to view more products in each category.  The color matches the products page to create consistency.</li>
 </ul>
 <ul>
-<li>The Confirm button is used at the bottom of the form page to confirm order.  The color matches the form to create consistency.</li>
+<li>The Checkout button button is used at the bottom of the form page to confirm order.  The color matches the form to create consistency.</li>
 </ul>
 </div>
       </div>
@@ -1149,10 +1149,9 @@
                   <svg><use xlink:href="#icon-copy"></use></svg>
                 </i>
               </button>
-              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;More&lt;/a>
+              <code><pre id="buttons-buttons-code-sample-copy-chunk">&lt;a class="btn" href="#"&gt;Shop&lt;/a>
 &lt;a class="btn btn-more" href="#">More&lt;/a>
-&lt;a class="btn btn-products" href="#">Products&lt;/a>
-&lt;a class="btn btn-confirm" href="#">Confirm&lt;/a>
+&lt;a class="btn btn-products" href="#">Buy Now&lt;/a>
 &lt;a class="btn btn-checkout" href="#">Checkout&lt;/a>
 </pre></code>
             </div>
@@ -1245,7 +1244,7 @@
       &lt;svg>&lt;use xlink:href="../../images/icons.svg#crystal"/>&lt;/svg>
     &lt;/i>
   &lt;/div>
-  &lt;a class="circle" href="crystal">crystal&lt;/a>
+  &lt;a class="circle" href="crystal">Crystals&lt;/a>
 &lt;/div>
 </pre></code>
             </div>
@@ -1312,8 +1311,8 @@
                 </i>
               </button>
               <code><pre id="cards-image-card-code-sample-copy-chunk">&lt;div class="card text-center"&gt;
-  &lt;img class="img-flex photo" src="../../images/ice-sphere.jpg" alt="ice-sphere">
-  &lt;a href="ice" class="text-center push-1-4 caption">Ice sphere&lt;/a>
+  &lt;img class="img-flex photo blue-border" src="../../images/ice-sphere.jpg" alt="ice-sphere">
+  &lt;a href="product-details.html" class="text-center push-1-4 caption">Ice sphere&lt;/a>
 &lt;/div>
 </pre></code>
             </div>
@@ -1352,7 +1351,7 @@
   </div>
 
     <div class="pattern-desc milli island" style="">
-      <div class="max-length"><p>The footer is the last component you see on the website it ends the webpage with a solid block of color and contains the website&#39;s copyright information.</p>
+      <div class="max-length"><p>The footer is the last component you see on the website it ends the webpage with a solid block of color and contains the website&#39;s copyright information as well as social media icons.</p>
 </div>
     </div>
 
@@ -1388,7 +1387,22 @@
                 </i>
               </button>
               <code><pre id="footers-footers-code-sample-copy-chunk">&lt;div role="contentinfo"&gt;
-  &lt;footer class="push-0 micro pad-t-2 pad-b text-center">Copyright &#xA9; Healingjourney&lt;/footer>
+  &lt;div class="grid">
+    &lt;div class="unit xs-1 s-1 m-1 l-1- pad-b pad-t">
+
+      &lt;footer class="push-0 micro pad-t-2 pad-b-2 text-center gutter-2">Copyright &#xA9; Healingjourney
+
+
+        &lt;i class="icon i-32 right">
+         &lt;img class="twitter push-0" src="../../images/twitter.svg" alt="">
+       &lt;/i>
+
+        &lt;i class="icon i-32 right">
+       &lt;img class="facebook push-0 pad-b-1-4" src="../../images/facebook.svg" alt="">
+     &lt;/i>
+      &lt;/footer>
+    &lt;/div>
+  &lt;/div>
 &lt;/div>
 </pre></code>
             </div>
@@ -1412,7 +1426,7 @@
 
     <div class="pattern-desc milli island" >
       <div class="max-length"><hr>
-<p>The forms provide a way for us to highlight important pieces of information and showcase the sites products.</p>
+<p>The forms provides a way to fill out information details and confirm your purchase.</p>
 </div>
     </div>
 
@@ -1739,15 +1753,16 @@
           &lt;li class="gutter-1-2">&lt;a href="home.html" class="pad-b-1-4">HOME&lt;/a>&lt;/li>
           &lt;li class="gutter-1-2">&lt;a href="" class="pad-b-1-4">ABOUT&lt;/a>&lt;/li>
           &lt;li class="gutter-1-2">&lt;a href="products.html" class="pad-b-1-4">PRODUCTS&lt;/a>&lt;/li>
-          &lt;li class="gutter-1-2">&lt;a href="" class="pad-b-1-4">CONTACT&lt;/a>&lt;/li>
-          &lt;li class="gutter-1-2">&lt;a href="checkout.html" class="pad-b-1-4">CHECKOUT&lt;/a>&lt;/li>
+          &lt;li class="gutter-1-4">&lt;a href="" class="pad-b-1-4">CONTACT&lt;/a>&lt;/li>
         &lt;/ul>
       &lt;/nav>
     &lt;/div>
   &lt;/div>
-  &lt;i class="cart icon i-32">
-     &lt;img class="push-0 cart" src="../../images/cart.svg" alt="">
-   &lt;/i>
+
+  &lt;a href="checkout.html" class="cart icon i-32">
+     &lt;img class="push-0 cart img-flex" src="../../images/cart.svg" alt="">
+   &lt;/a>
+
 &lt;/header>
 </pre></code>
             </div>
@@ -1786,7 +1801,7 @@
   </div>
 
     <div class="pattern-desc milli island" style="">
-      <div class="max-length"><p>The navigation provides a way for us to go to the shopping cart on the website.</p>
+      <div class="max-length"><p>The navigation provides a way to return to the shopping cart when on the home page.</p>
 </div>
     </div>
 

@@ -444,9 +444,9 @@ const patternBotIncludes = function (manifest) {
 /** 
  * Patternbot library manifest
  * /Users/tandrews/Desktop/My Art/Semester 4 Graphic Design/WEB-4/ecommerce-pattern-library
- * @version bb9e2b69a0046cada8605a82cbbec3b6feebdc55
+ * @version 0bda6316453d69038da26b63f49ea1dc64af95e6
  */
-const patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55 = {
+const patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6 = {
   "commonInfo": {
     "modulifier": [
       "responsive",
@@ -615,7 +615,10 @@ const patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55 = {
     "icons": [
       "crystal",
       "book",
-      "insence"
+      "insence",
+      "twitter",
+      "facebook",
+      "instagram"
     ],
     "interfaceColours": {
       "primary": 0,
@@ -1001,5 +1004,5 @@ const patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55 = {
   }
 };
 
-patternBotIncludes(patternManifest_bb9e2b69a0046cada8605a82cbbec3b6feebdc55);
+patternBotIncludes(patternManifest_0bda6316453d69038da26b63f49ea1dc64af95e6);
 }());

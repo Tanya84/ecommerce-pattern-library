@@ -1,2 +1,2 @@
 ---
-The forms provide a way for us to highlight important pieces of information and showcase the sites products.
+The forms provides a way to fill out information details and confirm your purchase.

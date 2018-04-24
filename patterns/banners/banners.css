@@ -35,6 +35,14 @@
 
 .trendy{
   background-color: var(--color-accent-trendypink);
+  color: #fff;
+
+
+}
+
+.blue{
+  background-color: var(--color-accent-hippyblue);
+  color: #fff;
 
 
 }

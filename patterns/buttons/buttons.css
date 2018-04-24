@@ -45,20 +45,8 @@
   border-color: var(--color-accent-hippyblue);
 }
 
-.btn-confirm{
-  background-color: transparent;
-  border-color:var(--color-accent-trendypink);
-  border-radius: 8px;
-  padding: .2em .6em;
 
 
-  color: var(--color-accent-trendypink);
-}
-
-.btn-confirm:hover {
-  background-color: var(--color-accent-trendypink);
-  border-color: var(--color-accent-trendypink);
-}
 
 .btn-checkout:hover {
   background-color: var(--color-accent-trendypink);
@@ -66,4 +54,5 @@
 }
 .btn-checkout {
   border-color: var(--color-accent-trendypink);
+  color: var(--color-accent-trendypink);
 }

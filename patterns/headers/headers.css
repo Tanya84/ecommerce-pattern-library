@@ -14,10 +14,6 @@ header {
   position: relative;
 }
 
-header nav li:last-child {
-  width: 100%;
-}
-
 a {
   color: var(--color-accent-hippyblue);
   text-decoration: underline;
@@ -30,15 +26,24 @@ a {
 
 .cart {
   border: none;
-  color: var(--color-accent-hippyblue);
   position: absolute;
   right: 20px;
   top: 5px;
+  border-radius: 50%;
+  transition:  .5s ease;
+
+
 
 }
 
 .nav {
   padding-right: 50px;
+
+}
+
+.cart:hover {
+  background-color: var(--color-accent-hippyblue);
+  border-radius: 50%
 
 }
 
